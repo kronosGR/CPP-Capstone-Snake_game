@@ -1,0 +1,3 @@
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/CppND-Capstone-Snake-Game-master/build/CMakeFiles/rebuild_cache.dir
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/CppND-Capstone-Snake-Game-master/build/CMakeFiles/edit_cache.dir
+/home/kronos/DISKS/CLOUD/CLOUD/DEV/CPP/learning/UDACITY/CppND-Capstone-Snake-Game-master/build/CMakeFiles/SnakeGame.dir

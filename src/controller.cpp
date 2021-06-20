@@ -9,13 +9,16 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   return;
 }
 
-void Controller::HandleInput(bool &running, Snake &snake) const {
+void Controller::HandleInput(bool &running, Snake &snake, Game &game) const {
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
       running = false;
     } else if (e.type == SDL_KEYDOWN) {
       switch (e.key.keysym.sym) {
+        case SDLK_p:
+          game.GetPause() ? game.SetPause(false) : game.SetPause(true);
+          break;
         case SDLK_UP:
           ChangeDirection(snake, Snake::Direction::kUp,
                           Snake::Direction::kDown);

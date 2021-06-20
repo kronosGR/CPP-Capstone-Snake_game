@@ -7,6 +7,9 @@
 #include "renderer.h"
 #include "snake.h"
 
+// forward declaration to avoid header recursion
+class Controller;
+
 class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height);
@@ -14,6 +17,12 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+
+  void SetPause(bool _paused);
+  bool GetPause();
+  void SetRunning(bool _running);
+  void SetStart(bool _start);
+  
 
  private:
   Snake snake;
@@ -28,6 +37,10 @@ class Game {
 
   void PlaceFood();
   void Update();
+
+  bool start{true};
+  bool running{true};
+  bool paused{true};
 };
 
 #endif

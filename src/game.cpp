@@ -1,12 +1,13 @@
 #include "game.h"
 #include <iostream>
-#include "SDL.h"
+#include "SDL2/SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) {
+      random_h(0, static_cast<int>(grid_height - 1)) 
+{ 
   PlaceFood();
 }
 
@@ -16,14 +17,13 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_start;
   Uint32 frame_end;
   Uint32 frame_duration;
-  int frame_count = 0;
-  bool running = true;
+  int frame_count = 0;  
 
   while (running) {
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake);
+    controller.HandleInput(running, snake, *this);
     Update();
     renderer.Render(snake, food);
 
@@ -46,7 +46,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // achieve the correct frame rate.
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
-    }
+    }    
   }
 }
 
@@ -68,6 +68,8 @@ void Game::PlaceFood() {
 void Game::Update() {
   if (!snake.alive) return;
 
+  if (paused) return;
+
   snake.Update();
 
   int new_x = static_cast<int>(snake.head_x);
@@ -81,7 +83,25 @@ void Game::Update() {
     snake.GrowBody();
     snake.speed += 0.02;
   }
+
+  while(start){}
 }
 
 int Game::GetScore() const { return score; }
 int Game::GetSize() const { return snake.size; }
+
+void Game::SetPause(bool _paused){
+  paused = _paused;
+}
+
+bool Game::GetPause(){
+  return paused;
+}
+
+void Game::SetRunning(bool _running){
+  running = _running;
+}
+
+void Game::SetStart(bool _start){
+  start = _start;
+}

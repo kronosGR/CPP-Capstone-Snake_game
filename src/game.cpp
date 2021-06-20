@@ -4,7 +4,7 @@
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
-      engine(dev()),
+      engine(dev()),      
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) 
 { 
@@ -25,7 +25,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake, *this);
     Update();
-    renderer.Render(snake, food);
+    // change it and added wall to toggle it
+    renderer.Render(snake, food, border);
 
     frame_end = SDL_GetTicks();
 
@@ -91,7 +92,8 @@ int Game::GetScore() const { return score; }
 int Game::GetSize() const { return snake.size; }
 
 void Game::SetPause(bool _paused){
-  paused = _paused;
+  std::lock_guard<std::mutex> lock(mtx);
+  paused = _paused;  
 }
 
 bool Game::GetPause(){
@@ -99,9 +101,19 @@ bool Game::GetPause(){
 }
 
 void Game::SetRunning(bool _running){
+  std::lock_guard<std::mutex> lock(mtx);
   running = _running;
 }
 
 void Game::SetStart(bool _start){
+  std::lock_guard<std::mutex> lock(mtx);
   start = _start;
+}
+
+void Game::SetBorder(bool _border){
+  border = _border;
+}
+
+bool Game::GetBorder(){
+  return border;
 }

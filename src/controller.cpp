@@ -17,12 +17,17 @@ void Controller::HandleInput(bool &running, Snake &snake, Game &game) const {
     } else if (e.type == SDL_KEYDOWN) {
       switch (e.key.keysym.sym) {
         case SDLK_p:
-          if (!game.GetPause()) {
+          // toggle pause
+          if (!game.GetPause()) {            
             game.SetPause(true);
             ShowPauseMenu(game);
           } else {
             game.SetPause(false);
           }
+          break;
+        case SDLK_w:
+          // toggle border
+          game.GetBorder() ? game.SetBorder(false): game.SetBorder(true);
           break;
         case SDLK_UP:
           ChangeDirection(snake, Snake::Direction::kUp,

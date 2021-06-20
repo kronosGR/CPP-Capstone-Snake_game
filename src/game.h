@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <random>
+#include <mutex>
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
@@ -22,6 +23,8 @@ class Game {
   bool GetPause();
   void SetRunning(bool _running);
   void SetStart(bool _start);
+  void SetBorder(bool _border);
+  bool GetBorder();
   
 
  private:
@@ -32,6 +35,7 @@ class Game {
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
+  std::mutex mtx;
 
   int score{0};
 
@@ -41,6 +45,9 @@ class Game {
   bool start{true};
   bool running{true};
   bool paused{true};
+  bool border{false};
+
+
 };
 
 #endif

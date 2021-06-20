@@ -5,7 +5,7 @@ void ShowPauseMenu(Game& game){
     {0, 0, "Resume Game"}
   };
 
-  std::string msg = "Take a breath \nCurrent Score: " + std::to_string(game.GetScore()) +"\n Current Size: " + std::to_string(game.GetSize());
+  std::string msg = "Take a breath \nCurrent Score: " + std::to_string(game.GetScore()) +"\nCurrent Size: " + std::to_string(game.GetSize());
   const SDL_MessageBoxData pause_data = {
     SDL_MESSAGEBOX_INFORMATION,
     NULL,

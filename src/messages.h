@@ -7,6 +7,8 @@
 #include <iostream>
 #include "game.h"
 
+class Game;
+
 void ShowStartMenu(Game& game);
 void ShowPauseMenu(Game& game);
 

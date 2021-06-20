@@ -3,6 +3,7 @@
 
 #include "game.h"
 #include "snake.h"
+#include "messages.h"
 
 // forward declaration to avoid header recursion
 class Game;

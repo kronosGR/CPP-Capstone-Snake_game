@@ -17,7 +17,12 @@ void Controller::HandleInput(bool &running, Snake &snake, Game &game) const {
     } else if (e.type == SDL_KEYDOWN) {
       switch (e.key.keysym.sym) {
         case SDLK_p:
-          game.GetPause() ? game.SetPause(false) : game.SetPause(true);
+          if (!game.GetPause()) {
+            game.SetPause(true);
+            ShowPauseMenu(game);
+          } else {
+            game.SetPause(false);
+          }
           break;
         case SDLK_UP:
           ChangeDirection(snake, Snake::Direction::kUp,

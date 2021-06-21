@@ -72,3 +72,30 @@ void ShowStartMenu(Game& game){
   }
 
 }
+
+void ShowEndMenu(Game& game){
+  const SDL_MessageBoxButtonData pause_buttons[] = {
+    {0, 0, "Quit"}
+  };
+
+  std::string msg = "You lost! \nScore: " + std::to_string(game.GetScore()) +"\nSize: " + std::to_string(game.GetSize());
+  const SDL_MessageBoxData pause_data = {
+    SDL_MESSAGEBOX_INFORMATION,
+    NULL,
+    "Kronos Snake",
+    msg.c_str(),
+    SDL_arraysize(pause_buttons),
+    pause_buttons,
+    NULL
+  };
+
+  int button_pressed;
+  if (SDL_ShowMessageBox(&pause_data, &button_pressed) < 0){
+    std::cout << "Error display end message box\n";
+    return;
+  }
+  if (button_pressed == 0){
+    // quit game
+    game.SetRunning(false);
+  }
+}

@@ -54,7 +54,7 @@ void Audio::playLost(std::string filename){
   if (lost == NULL){
     std::cout << "Failed to load lost sound effect. Error: " << Mix_GetError() << std::endl;
   }
-  Mix_PlayChannel(-1, lost, 0);
+  Mix_PlayChannel(-1, lost, 1);
 }
 
 void Audio::pauseMove(){  

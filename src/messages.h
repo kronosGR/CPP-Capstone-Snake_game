@@ -11,5 +11,7 @@ class Game;
 
 void ShowStartMenu(Game& game);
 void ShowPauseMenu(Game& game);
+void ShowEndMenu(Game& game);
+
 
 #endif

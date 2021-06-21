@@ -71,6 +71,7 @@ void Game::Update() {
   if (!snake.alive){
     audio.pauseMove();
     audio.playLost("../assets/lose.wav");
+    ShowEndMenu(*this);
     return;
   } 
 

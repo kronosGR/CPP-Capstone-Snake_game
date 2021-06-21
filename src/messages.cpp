@@ -2,7 +2,8 @@
 
 void ShowPauseMenu(Game& game){
   const SDL_MessageBoxButtonData pause_buttons[] = {
-    {0, 0, "Resume Game"}
+    {0, 0, "Quit"},
+    {0, 1, "Resume Game"}
   };
 
   std::string msg = "Take a breath \nCurrent Score: " + std::to_string(game.GetScore()) +"\nCurrent Size: " + std::to_string(game.GetSize());
@@ -22,6 +23,10 @@ void ShowPauseMenu(Game& game){
     return;
   }
   if (button_pressed == 0){
+    // quit game
+    game.SetRunning(false);
+  }
+  else if (button_pressed == 1){
     // resume game
     game.SetPause(false);
   }
@@ -36,6 +41,7 @@ void ShowStartMenu(Game& game){
   std::string msg = "Welcome! \
               \nPause Game -> P \
               \nShow red border -> W\
+              \n\nIf you want to quit during the game, pause the game and select Quit\
               \n\nPlease select what to do next";
   const SDL_MessageBoxData menu_data = {
     SDL_MESSAGEBOX_INFORMATION, 

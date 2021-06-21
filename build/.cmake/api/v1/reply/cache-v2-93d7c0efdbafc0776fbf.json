@@ -1130,6 +1130,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_mixer",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding SDL2_mixer"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/usr/lib/x86_64-linux-gnu/libSDL2_mixer.so][/usr/include/SDL2][v2.0.4()]"
+		},
+		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
 			"properties" : 
 			[
@@ -1176,6 +1188,106 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/lib/x86_64-linux-gnu/cmake/SDL2"
+		},
+		{
+			"name" : "SDL2_MIXER_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_mixer headers can be found"
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/include/SDL2"
+		},
+		{
+			"name" : "SDL2_MIXER_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_mixer Library can be found"
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/libSDL2_mixer.so"
+		},
+		{
+			"name" : "SDL2_MIXER_NO_DEFAULT_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Disable search SDL2_mixer Library in default path"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SDL2_MIXER_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Custom SDL2_mixer Library path"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
+		},
+		{
+			"name" : "SDL2_mixer_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SDL2_mixer."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL2_mixer_DIR-NOTFOUND"
+		},
+		{
+			"name" : "SDL_MIXER_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL_MIXER_INCLUDE_DIR-NOTFOUND"
+		},
+		{
+			"name" : "SDL_MIXER_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "SDL_MIXER_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "THREADS_HAVE_PTHREAD_ARG",

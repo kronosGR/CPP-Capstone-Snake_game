@@ -7,6 +7,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "audio.h"
 
 // forward declaration to avoid header recursion
 class Controller;
@@ -30,6 +31,7 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
+  Audio audio;
 
   std::random_device dev;
   std::mt19937 engine;

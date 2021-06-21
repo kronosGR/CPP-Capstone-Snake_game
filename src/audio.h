@@ -2,21 +2,29 @@
 #define AUDIO_H
 
 #include <SDL2/SDL.h>
+#include <SDL_mixer.h>
 #include <iostream>
 #include <string>
+//#include <filesystem>
 
 class Audio{
   public:
-    Audio(std::string filename);
+    Audio();
     ~Audio();
 
-    void play();
+    void playMusic(std::string fileName);
+    void playEat(std::string fileName);
+    void playMove(std::string fileName);
+    void playLost(std::string fileName);
+    void pauseMusic();
+    void pauseMove();
 
   private:
-    SDL_AudioSpec spec;
-    SDL_AudioDeviceID dev_id;
-    int length;
-    int buffer;
+    Mix_Music *music{NULL};
+    Mix_Chunk *eat{NULL};
+    Mix_Chunk *move{NULL};
+    Mix_Chunk *lost{NULL};
+
 };
 
 #endif

@@ -8,7 +8,8 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) 
 { 
-  PlaceFood();
+  audio.playMusic("../assets/music.mp3");
+  PlaceFood();     
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -67,7 +68,11 @@ void Game::PlaceFood() {
 }
 
 void Game::Update() {
-  if (!snake.alive) return;
+  if (!snake.alive){
+    audio.pauseMove();
+    audio.playLost("../assets/lose.wav");
+    return;
+  } 
 
   if (paused) return;
 
@@ -83,6 +88,8 @@ void Game::Update() {
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
+    
+     audio.playEat("../assets/eat.wav");
   }
 
   while(start){}
@@ -94,6 +101,14 @@ int Game::GetSize() const { return snake.size; }
 void Game::SetPause(bool _paused){
   std::lock_guard<std::mutex> lock(mtx);
   paused = _paused;  
+  if (paused){
+    audio.pauseMove();
+    audio.playMusic("../assets/music.mp3");
+  } 
+  else {
+    audio.pauseMusic();
+    audio.playMove("../assets/snake.wav");
+  }
 }
 
 bool Game::GetPause(){

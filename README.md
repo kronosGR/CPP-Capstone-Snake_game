@@ -1,12 +1,24 @@
-# CPPND: Capstone Snake Game Example
+# CPPND: Capstopm Snake Game
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+I chose to add features to the Snake starter game. 
+This is the starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="snake_game.gif"/>
+##### Pic.1 - start page
+<img src="start.png"/><br><br>  
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+##### Pic.2 - game
+<img src="snake_game.gif"/><br><br>  
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+##### Pic.3 - pause
+<img src="pause.png"/>
+
+## Changes / Added Features
+* Start message box with shortcuts information and 2 option, to start or quit the game
+* When you pause the game, with P, another message box appears with the score and length and you can also choose to quit or resume the game.
+* Toggle red window border with W
+* Music when the game is paused. SDL2_mixer
+* Sound effect when the game is running. SDL2_mixer
+* End game message box.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -17,7 +29,12 @@ In this project, you can build your own C++ application or extend this Snake gam
   * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
 * SDL2 >= 2.0
   * All installation instructions can be found [here](https://wiki.libsdl.org/Installation)
-  >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source. 
+  >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source. <br>
+  * For ubuntu `sudo apt-get install libsdl2-dev`
+* SDL2_mixer >= 2.0
+  * All installation instructions can be found [here](https://www.libsdl.org/projects/SDL_mixer/)
+  > Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.<br>
+  * For ubuntu `sudo apt-get install libsdl2-mixer-dev`
 * gcc/g++ >= 5.4
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
@@ -30,6 +47,22 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+## Project Criteria
+### Loops, Functions, I/O
+Criteria | Details 
+---|---
+ 1 The project demonstrates an understanding of C++ functions and control structure | All the projects demonstrates those criteria 
+ 
+### Object Oriented Programming
+ Criteria | Details
+ --- | ---
+ 2 The project uses Object Oriented Programming techniques | `Audio` is a class that has methods and data members. `audio.h / audio.cpp`
+ 3 Classes uses appropriate access specifiers for class members | `audio.h / audio.cpp`
+
+### Memory Management
+Criteria | Details
+--- | ---
+4 The project uses destructors appropriately | `~Audio()`
 
 ## CC Attribution-ShareAlike 4.0 International
 

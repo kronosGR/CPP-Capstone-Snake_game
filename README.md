@@ -64,6 +64,14 @@ Criteria | Details
 --- | ---
 4 The project uses destructors appropriately | `~Audio()`
 
+## Concurrency
+Criteria | Details
+--- | ---
+5 The project uses multithreading | `main.cpp`
+6 A mutex or lock is used in the project | `game.cpp` and `game.h`
+
+
+
 ## CC Attribution-ShareAlike 4.0 International
 
 
